@@ -1,5 +1,9 @@
 class Solution {
 public:
+
+    // My previous approach
+
+    /*
     int matrixSum(vector<vector<int>>& nums) {
         int score = 0;
         vector<int>check;
@@ -22,6 +26,28 @@ public:
         }
         
         
+        return score;
+    }
+};
+*/
+
+    int matrixSum(vector<vector<int>>& nums) {
+        int n = nums[0].size(); // Column
+
+        for(int i = 0; i < nums.size(); i++){
+            sort(nums[i].begin(), nums[i].end());
+        }
+
+    // After sorting, the answer is the summation of the highest element from each column
+        int score = 0;
+
+        for(int col = 0; col < n; col++){
+            int maxi = INT_MIN;
+            for(int i = 0; i < nums.size(); i++){
+                maxi = max(maxi, nums[i][col]);
+            }
+            score += maxi;
+        }
         return score;
     }
 };
