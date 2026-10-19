@@ -10,6 +10,8 @@
  */
 class Solution {
 public:
+// Optimal approach
+/*
     ListNode* reverseList(ListNode* head) {
         if (head == nullptr || head->next == nullptr) {
             return head;
@@ -26,4 +28,19 @@ public:
         }
         return back;
     }
+*/
+    // Can do using recursion too
+
+    ListNode* reverseList(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+        ListNode* newHead = reverseList(head->next);
+        ListNode* front = head->next;
+        front->next = head;
+        head->next = nullptr;
+
+        return newHead;
+    }
+
 };
