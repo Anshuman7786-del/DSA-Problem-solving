@@ -10,6 +10,28 @@
  */
 class Solution {
 public:
+
+// Optimal Approach
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+    ListNode* fast = head;
+    ListNode* slow = head;
+
+    for(int i = 0; i < n; i++){
+        fast = fast->next;
+    }
+    if(fast == nullptr) return head->next;
+    while(fast->next != nullptr){
+        fast = fast->next;
+        slow = slow->next;
+    }
+    ListNode* delNode = slow->next;
+    slow->next = slow->next->next;
+    delete delNode;
+
+    return head;
+}
+// Brute force
+ /*
     ListNode* removeNthFromEnd(ListNode* head, int n) {
 
         if (head == nullptr) {
@@ -39,4 +61,5 @@ public:
         delete temp;
         return head;
     }
+ */
 };
