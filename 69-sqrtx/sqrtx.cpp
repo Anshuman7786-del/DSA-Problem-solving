@@ -7,10 +7,14 @@ public:
     while (low <= high) {
         int mid = low + (high - low) / 2;
 
-        if (mid <= x / mid) {
+        if (mid < x / mid) {
             low = mid + 1;
-        } else {
+        } 
+        else if(mid > x / mid){
             high = mid - 1;
+        }
+        else{
+            return mid;
         }
     }
 
