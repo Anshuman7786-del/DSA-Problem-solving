@@ -1,6 +1,8 @@
 class Solution {
 public:
-
+/*
+  // Using recursion
+  // Here TC is O(logn) and SC is O(logn)
     int digitSum(int num){
 
         int cnum = num;
@@ -18,6 +20,24 @@ public:
         if(sum < 10) return sum;
         
         return addDigits(sum);
-        
+    }
+ */
+
+ // Now using loop only
+    int addDigits(int num) {
+
+        while (num >= 10) {
+            int sum = 0;
+
+            while (num > 0) {
+                int lastDigit = num % 10;
+                sum += lastDigit;
+                num /= 10;
+            }
+
+            num = sum;
+        }
+
+        return num;
     }
 };
