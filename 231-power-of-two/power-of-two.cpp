@@ -1,6 +1,7 @@
 class Solution {
 public:
-
+ /*
+    // Recursive approach
     bool isPowerOfTwo(int n) {
 
         if(n == 1) return true;
@@ -8,8 +9,14 @@ public:
         
         return isPowerOfTwo(n/2);
     }
+ */
 
-    // My approach ->
+    // Using bit manipulation 
+    bool isPowerOfTwo(int n){
+        return (n > 0) && (n & (n-1)) == 0;
+    }
+
+    // My previous approach ->
 
     // bool isPowerOfTwo(int n) {
 
