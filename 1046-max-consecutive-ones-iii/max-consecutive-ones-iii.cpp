@@ -6,7 +6,7 @@ public:
 
         int l = 0;
         int r = 0;
-        int zeros;
+        int zeros = 0;
         int len = 0;
         int maxlen = 0;
         while(r < nums.size()){
